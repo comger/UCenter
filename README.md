@@ -1,2 +1,2 @@
 # UCenter
-UserCenter DDD for Rest and RPC
+UserCenter's Rest and RPC API with DDD
