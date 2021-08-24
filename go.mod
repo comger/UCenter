@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/gofrs/uuid v4.0.0+incompatible
 	github.com/jinzhu/gorm v1.9.16
+	github.com/sirupsen/logrus v1.8.1
 	golang.org/x/crypto v0.0.0-20191205180655-e7c4368fe9dd
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
