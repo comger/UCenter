@@ -7,7 +7,22 @@ import (
 // Custom  在没有购买应用时, 它只是代表潜在客户
 type Custom struct {
 	Name     string
-	CustomID string
+	CustomID ov.CustomID
+}
+
+type Group struct {
+	CustomID ov.CustomID
+	GroupID  ov.GroupID
+	Name     string
+	IsGroup  bool
+	Members  []Group
+}
+
+func (g *Group) AppendMember(aMember *Group) {
+	if g.IsGroup {
+		g.Members = append(g.Members, *aMember)
+	}
+
 }
 
 // Tenant 租户，代表着客户在应用程序ClientID 购买开通了Modules, 购买凭证为 TenantID
@@ -16,6 +31,19 @@ type Tenant struct {
 	ClientID     ov.ClientID
 	TenantID     ov.TenantID
 	OrderModuels ov.OrderModuels
+	actived      bool
+}
+
+func (t *Tenant) Active() {
+	t.actived = true
+}
+
+func (t *Tenant) Deactive() {
+	t.actived = false
+}
+
+func (t *Tenant) IsActived() bool {
+	return t.actived
 }
 
 // 初始化客户购买应用程序

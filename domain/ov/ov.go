@@ -12,6 +12,7 @@ type CustomID OID // 客户标记
 type TenantID OID // 租户标记
 type RoleID OID   // 角色标记
 type UID OID      // 用户标记
+type GroupID OID  // 分组标记
 
 type Email string    // 邮件地址 格式只能是 xx@xx
 type Mobile string   // 手机号码 长度只能是 11位

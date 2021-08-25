@@ -14,10 +14,6 @@ type AccessToken struct {
 	TenantID ov.TenantID
 }
 
-func Auth(UserName string, Password string) *AccessToken {
-	return nil
-}
-
 type IUserApp interface {
 	Auth(ov.UserName, ov.Password) *AccessToken
 	Me(ov.UID) *entity.TenantUser
