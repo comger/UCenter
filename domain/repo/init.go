@@ -8,6 +8,7 @@ import (
 type IUserRepo interface {
 	Create(*entity.User)
 	Update(*entity.User)
+	SetSuperUser(*entity.AdminUser)
 	FindByID(ov.UID) *entity.Person
 	FindByUserName(ov.UserName) *entity.User
 	Fetch(*entity.Person) entity.Persons
