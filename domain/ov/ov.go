@@ -25,6 +25,16 @@ type UUIDString string         // 全局不重复UUID 字符串
 type ClientSecret UUIDString   // 应用的安全秘钥
 type CreatedAt int64           // 实例创建时间
 
+func IsNull(aID interface{}) bool {
+	return aID == nil
+}
+
+// type DemoID struct {
+// 	OID
+// }
+
+//var did DemoID
+
 func (cs *ClientSecret) IsNull() bool {
 	return cs == nil
 }

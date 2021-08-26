@@ -23,10 +23,17 @@ type User struct {
 }
 
 type TenantUser struct {
-	User
+	UID            ov.UID
+	TenantID       ov.TenantID
+	RoleID         ov.RoleID
 	IsTenantMaster bool
-	Tenant         Tenant
-	Role           Role
+}
+
+type TenantUserInfo struct {
+	TenantUser
+	Person Person
+	Tenant Tenant
+	Role   Role
 }
 
 type AdminUser struct {

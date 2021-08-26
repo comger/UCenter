@@ -9,6 +9,8 @@ type IUserRepo interface {
 	Create(*entity.User)
 	Update(*entity.User)
 	SetSuperUser(*entity.AdminUser)
+	SetPassword(ov.UID, ov.Password)
+	IsSuperUser(ov.UID) bool
 	FindByID(ov.UID) *entity.Person
 	FindByUserName(ov.UserName) *entity.User
 	Fetch(*entity.Person) entity.Persons
@@ -21,7 +23,7 @@ type ICustomRepo interface {
 	Fetch(string) []*entity.Custom
 }
 
-type IGroup interface {
+type IGroupRepo interface {
 	Create(*entity.Group)
 	Update(*entity.Group)
 	FindByID(ov.GroupID) []*entity.Group
@@ -49,14 +51,14 @@ type IRoleRepo interface {
 	Fetch(string) []*entity.Role
 }
 
-type ITenantUser interface {
+type ITenantUserRepo interface {
 	Create(*entity.TenantUser)
 	Update(*entity.TenantUser)
 	FindByID(ov.TenantID, ov.UID) *entity.TenantUser
 	Fetch() []*entity.TenantUser
 }
 
-type IEventLog interface {
+type IEventLogRepo interface {
 	Create(*entity.EventLog)
 	FindByID(ov.TenantID, ov.UID) []*entity.EventLog
 	FindByEventID(ov.OID) []*entity.EventLog

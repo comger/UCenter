@@ -29,18 +29,13 @@ func NewUserORM(uc *domain.UserCreate) *UserORM {
 	// 	uo[key] = val
 	// }
 	id := bson.NewObjectId().String()
-	hash, err := bcrypt.GenerateFromPassword([]byte(uc.Password), bcrypt.MinCost)
-	if err != nil {
-		u.Password = ""
-	} else {
-		u.Password = string(hash)
-	}
+	hash, _ := bcrypt.GenerateFromPassword([]byte(uc.Password), bcrypt.MinCost)
 	return &UserORM{ID: id,
 		UserName: uc.UserName,
 		NickName: uc.NickName,
 		Email:    uc.Email,
 		Mobile:   uc.Mobile,
-		Password: uc.Password,
+		Password: string(hash),
 	}
 }
 
