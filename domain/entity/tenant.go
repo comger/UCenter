@@ -10,12 +10,19 @@ type Custom struct {
 	CustomID ov.CustomID
 }
 
+type GroupMember struct {
+	ID      ov.OID
+	GroupID ov.GroupID
+	Name    string
+	IsGroup bool
+}
+
 type Group struct {
 	CustomID ov.CustomID
 	GroupID  ov.GroupID
 	Name     string
 	IsGroup  bool
-	Members  []Group
+	Members  []GroupMember
 }
 
 func (g *Group) AppendMember(aMember *Group) {

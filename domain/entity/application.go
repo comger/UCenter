@@ -4,9 +4,13 @@ import (
 	"ucenter/domain/ov"
 )
 
+type ApplicationCreate struct {
+	Name    string
+	Modules ov.Modules
+}
+
 type Application struct {
-	Name         string
-	Modules      ov.Modules
+	ApplicationCreate
 	ClientID     ov.ClientID
 	clientSecret ov.ClientSecret
 }

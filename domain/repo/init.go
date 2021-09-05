@@ -35,13 +35,14 @@ type ITenantRepo interface {
 	FindByID(ov.TenantID) *entity.Tenant
 	FindByClientID(ov.ClientID) []*entity.Tenant
 	FindByCustomID(ov.CustomID) []*entity.Tenant
+	FindByAppCustom(ov.ClientID, ov.CustomID) *entity.Tenant
 }
 
 type IApplicationRepo interface {
 	Create(*entity.Application)
 	Update(*entity.Application)
 	FindByID(ov.ClientID) *entity.Application
-	Fetch(string) []*entity.Application
+	Fetch() []*entity.Application
 }
 
 type IRoleRepo interface {
@@ -55,7 +56,7 @@ type ITenantUserRepo interface {
 	Create(*entity.TenantUser)
 	Update(*entity.TenantUser)
 	FindByID(ov.TenantID, ov.UID) *entity.TenantUser
-	Fetch() []*entity.TenantUser
+	Fetch(ov.TenantID) []*entity.TenantUser
 }
 
 type IEventLogRepo interface {
